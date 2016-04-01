@@ -290,7 +290,7 @@ direct: W/W</string>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f6b-E2-JX0">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="separatorInset" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="separatorInset" minX="9999" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityCell" rowHeight="44" id="KSs-BU-kn5" customClass="CityCell">
                                         <rect key="frame" x="0.0" y="92" width="320" height="44"/>
@@ -334,6 +334,7 @@ direct: W/W</string>
                                                 <constraint firstItem="jDr-AX-FjU" firstAttribute="top" secondItem="fMZ-dD-s2j" secondAttribute="topMargin" id="hVK-W0-HMA"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="countryLabel" destination="hk3-rD-xau" id="xPM-bs-a80"/>
                                             <outlet property="nameLabel" destination="ibf-x6-fA4" id="Gfq-T5-ilT"/>
