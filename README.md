@@ -1,7 +1,6 @@
 # openweathermap
 https://home.openweathermap.org
 user EvGeniyLell
-email evgeniylell+ardas@gmail.com
 apikey = e7bd95961b5eea99e8d9ef16777d63a2
 
 
