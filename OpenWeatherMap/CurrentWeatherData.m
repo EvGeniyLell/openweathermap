@@ -34,7 +34,7 @@
         self.wind = [WindCondition dataWithAttributes:attributes[@"wind"]];
         self.sun = [SunCondition dataWithAttributes:attributes[@"sys"]];
         
-        self.lastUpdate = [NSDate date].timeIntervalSinceReferenceDate;
+        self.lastUpdate = [NSDate date].timeIntervalSince1970;
     }
     return self;
 }
@@ -51,6 +51,7 @@
     [aCoder encodeObject:self.main forKey:@"main"];
     [aCoder encodeObject:self.wind forKey:@"wind"];
     [aCoder encodeObject:self.sun forKey:@"sun"];
+    [aCoder encodeObject:[NSNumber numberWithDouble:self.lastUpdate] forKey:@"lastUpdate"];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -61,6 +62,7 @@
         self.main = [aDecoder decodeObjectForKey:@"main"];
         self.wind = [aDecoder decodeObjectForKey:@"wind"];
         self.sun = [aDecoder decodeObjectForKey:@"sun"];
+        self.lastUpdate = [[aDecoder decodeObjectForKey:@"lastUpdate"] doubleValue];
     }
     return self;
 }

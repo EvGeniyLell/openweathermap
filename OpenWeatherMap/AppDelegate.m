@@ -7,17 +7,26 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+
+static NSTimeInterval const ScheduledBackgroundUpdateTimeInterval = 1800;
 
 @interface AppDelegate ()
 
 @end
 
+
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:ScheduledBackgroundUpdateTimeInterval];
     // Override point for customization after application launch.    
     return YES;
+}
+
+- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+    [ViewController backgroundUpdate];
+    completionHandler(UIBackgroundFetchResultNewData);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

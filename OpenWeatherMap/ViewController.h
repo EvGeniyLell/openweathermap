@@ -15,3 +15,19 @@
 
 @end
 
+
+@interface ViewController(NSUserDefaults)
+
+- (void)saveToUserDefaults;
+- (void)selectCityByUserDefaults;
++ (void)backgroundUpdate;
+
+@end
+
+
+@interface ViewController(ScheduledUpdate)
+
+- (void)makeScheduledUpdate;
+
+@end
+

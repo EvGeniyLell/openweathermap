@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		31219C36932B6392579F13B3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AD22025D36CC0B860F7FF2 /* libPods.a */; };
+		6B03A7591CAE8CF000D2022C /* CityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B03A7581CAE8CF000D2022C /* CityCell.m */; };
+		6B03A75C1CAE8F4C00D2022C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B03A75B1CAE8F4C00D2022C /* SettingsViewController.m */; };
 		6B2511DB1CAD4D7D00D6A94D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2511DA1CAD4D7D00D6A94D /* main.m */; };
 		6B2511DE1CAD4D7D00D6A94D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2511DD1CAD4D7D00D6A94D /* AppDelegate.m */; };
 		6B2511E11CAD4D7D00D6A94D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2511E01CAD4D7D00D6A94D /* ViewController.m */; };
@@ -51,6 +53,10 @@
 
 /* Begin PBXFileReference section */
 		1F989305F33292D048B25EAD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		6B03A7571CAE8CF000D2022C /* CityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityCell.h; sourceTree = "<group>"; };
+		6B03A7581CAE8CF000D2022C /* CityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityCell.m; sourceTree = "<group>"; };
+		6B03A75A1CAE8F4C00D2022C /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		6B03A75B1CAE8F4C00D2022C /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		6B2511D61CAD4D7B00D6A94D /* OpenWeatherMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWeatherMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B2511DA1CAD4D7D00D6A94D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6B2511DC1CAD4D7D00D6A94D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -142,6 +148,28 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6B03A75D1CAEB3D200D2022C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				6B9C23C51CADB3190093D0B5 /* NSUserDefaults+KeyedArchiver.h */,
+				6B9C23C61CADB3190093D0B5 /* NSUserDefaults+KeyedArchiver.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		6B03A75E1CAEB3EB00D2022C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6B2511DF1CAD4D7D00D6A94D /* ViewController.h */,
+				6B2511E01CAD4D7D00D6A94D /* ViewController.m */,
+				6B03A75A1CAE8F4C00D2022C /* SettingsViewController.h */,
+				6B03A75B1CAE8F4C00D2022C /* SettingsViewController.m */,
+				6BFC3A191CADEA0B00EA4518 /* NavigationViewController.h */,
+				6BFC3A1A1CADEA0B00EA4518 /* NavigationViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		6B2511CD1CAD4D7B00D6A94D = {
 			isa = PBXGroup;
 			children = (
@@ -169,20 +197,16 @@
 			children = (
 				6B2511DC1CAD4D7D00D6A94D /* AppDelegate.h */,
 				6B2511DD1CAD4D7D00D6A94D /* AppDelegate.m */,
-				6B2511DF1CAD4D7D00D6A94D /* ViewController.h */,
-				6B2511E01CAD4D7D00D6A94D /* ViewController.m */,
-				6BFC3A191CADEA0B00EA4518 /* NavigationViewController.h */,
-				6BFC3A1A1CADEA0B00EA4518 /* NavigationViewController.m */,
+				6B03A75E1CAEB3EB00D2022C /* Controllers */,
 				6BFC3A181CADE26900EA4518 /* Views */,
+				6B9C23AD1CAD74980093D0B5 /* WetherData */,
+				6B9C23A31CAD62C80093D0B5 /* ApiClient */,
+				6B03A75D1CAEB3D200D2022C /* Categories */,
 				6B2511E21CAD4D7D00D6A94D /* Main.storyboard */,
 				6B2511E51CAD4D7D00D6A94D /* Assets.xcassets */,
 				6B2511E71CAD4D7D00D6A94D /* LaunchScreen.storyboard */,
 				6B2511EA1CAD4D7D00D6A94D /* Info.plist */,
 				6B2511D91CAD4D7D00D6A94D /* Supporting Files */,
-				6B9C23A31CAD62C80093D0B5 /* ApiClient */,
-				6B9C23AD1CAD74980093D0B5 /* WetherData */,
-				6B9C23C51CADB3190093D0B5 /* NSUserDefaults+KeyedArchiver.h */,
-				6B9C23C61CADB3190093D0B5 /* NSUserDefaults+KeyedArchiver.m */,
 				6B9C239E1CAD50B80093D0B5 /* README.MD */,
 			);
 			path = OpenWeatherMap;
@@ -251,6 +275,8 @@
 			children = (
 				6BFC3A151CADDD7A00EA4518 /* WeatherView.h */,
 				6BFC3A161CADDD7A00EA4518 /* WeatherView.m */,
+				6B03A7571CAE8CF000D2022C /* CityCell.h */,
+				6B03A7581CAE8CF000D2022C /* CityCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -324,6 +350,11 @@
 				TargetAttributes = {
 					6B2511D51CAD4D7B00D6A94D = {
 						CreatedOnToolsVersion = 7.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					6B2511EE1CAD4D7F00D6A94D = {
 						CreatedOnToolsVersion = 7.3;
@@ -423,6 +454,7 @@
 				6B9C23A91CAD646E0093D0B5 /* WeatherCondition.m in Sources */,
 				6B2511E11CAD4D7D00D6A94D /* ViewController.m in Sources */,
 				6B9C23BE1CAD908D0093D0B5 /* SunCondition.m in Sources */,
+				6B03A75C1CAE8F4C00D2022C /* SettingsViewController.m in Sources */,
 				6B9C23C71CADB3190093D0B5 /* NSUserDefaults+KeyedArchiver.m in Sources */,
 				6BFC3A1B1CADEA0B00EA4518 /* NavigationViewController.m in Sources */,
 				6B9C23C41CADA0A00093D0B5 /* WeatherAPIClient+CurrentWeatherData.m in Sources */,
@@ -436,6 +468,7 @@
 				6B2511DB1CAD4D7D00D6A94D /* main.m in Sources */,
 				6BFC3A171CADDD7A00EA4518 /* WeatherView.m in Sources */,
 				6B9C23BB1CAD8E540093D0B5 /* WeatherCity.m in Sources */,
+				6B03A7591CAE8CF000D2022C /* CityCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

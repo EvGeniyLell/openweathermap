@@ -21,20 +21,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *sunrisesetLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pressureLabel;
 @property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lastupdateLabel;
 
 
 @end
 
 
 @implementation WeatherView
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
@@ -50,6 +43,7 @@
 }
 
 
+#pragma mark - Property
 - (void)setCity:(WeatherCity *)city {
     if (_city != city) {
         _city = city;
@@ -57,7 +51,7 @@
     }
 }
 
-
+#pragma mark - Update
 - (void)updateView {
     self.cityNameLabel.text = self.city.name;
     CurrentWeatherData *data = self.city.currentWeather;
@@ -65,17 +59,17 @@
         self.coverView.image = [self imageFromWeatherConditionMainOptions:data.weather.main];
         self.descriptionLabel.text = data.weather.descript;
 
-        self.temperatureLabel.text = [NSString stringWithFormat:@"%.0f", [self celsiyFromFaringeyt:data.main.temperature]];
+        self.temperatureLabel.text = [NSString stringWithFormat:@"%+.0f", [self celsiyFromFaringeyt:data.main.temperature]];
         // temperature Max/Min show if it different
         if (data.main.temperatureMax != data.main.temperatureMin) {
-            self.temperatureMaxLabel.text = [NSString stringWithFormat:@"%.0f", [self celsiyFromFaringeyt:data.main.temperatureMax]];
-            self.temperatureMinLabel.text = [NSString stringWithFormat:@"%.0f", data.main.temperatureMin];
+            self.temperatureMaxLabel.text = [NSString stringWithFormat:@"%+.0f", [self celsiyFromFaringeyt:data.main.temperatureMax]];
+            self.temperatureMinLabel.text = [NSString stringWithFormat:@"%+.0f", data.main.temperatureMin];
         } else {
             self.temperatureMaxLabel.text = @"";
             self.temperatureMinLabel.text = @"";
         }
         self.pressureLabel.text = [NSString stringWithFormat:@"%.0f hPA", data.main.pressure];
-        self.humidityLabel.text = [NSString stringWithFormat:@"%ld%%", (long)data.main.humidity];
+        self.humidityLabel.text = [NSString stringWithFormat:@"%ld %%", (long)data.main.humidity];
 
         // show wind direction if it has
         if (data.wind.direction != WindtConditionDirectionUnknown) {
@@ -85,15 +79,26 @@
         }
         
         self.sunrisesetLabel.text = [NSString stringWithFormat:@"↑ %@\n↓ %@", [self stringFromTimeInterval:data.sun.sunrise], [self stringFromTimeInterval:data.sun.sunset]];
-
-        
+        self.lastupdateLabel.text = [NSString stringWithFormat:@"update from server: %@",
+        [self stringFromTimeIntervalAsDate:data.lastUpdate]];
+    } else {
+        self.coverView.image = [self imageFromWeatherConditionMainOptions:WeatherConditionMainUnknown];
+        self.descriptionLabel.text = @"";
+        self.temperatureLabel.text = @"+/-";
+        self.temperatureMaxLabel.text = @"";
+        self.temperatureMinLabel.text = @"";
+        self.pressureLabel.text = @"hPA";
+        self.humidityLabel.text = @"%%%%";
+        self.windLabel.text = @"";
+        self.sunrisesetLabel.text = @"";
+        self.lastupdateLabel.text = @"update from server: never";
     }
 }
 
 #pragma mark - Transform
 - (CGFloat)celsiyFromFaringeyt:(CGFloat)faringeyt {
     return faringeyt;
-    return (5.0/9.0)*(faringeyt-32.0);
+//    return (5.0/9.0)*(faringeyt-32.0);
 }
 
 - (UIImage*)imageFromWeatherConditionMainOptions:(WeatherConditionMainOptions)options {
@@ -152,6 +157,14 @@
 - (NSString*)stringFromTimeInterval:(NSTimeInterval)timeInterval {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterNoStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    
+    return [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:timeInterval]];
+}
+
+- (NSString*)stringFromTimeIntervalAsDate:(NSTimeInterval)timeInterval {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterShortStyle];
     [formatter setTimeStyle:NSDateFormatterShortStyle];
     
     return [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:timeInterval]];

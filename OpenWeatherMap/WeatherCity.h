@@ -21,6 +21,8 @@ static NSString * const WeatherCityNotificationDataDidChanged;
 
 @property (nonatomic, strong, readonly) CurrentWeatherData *currentWeather;
 
+@property (nonatomic, assign, readonly) BOOL isDownloaded;
+
 + (instancetype)dataWithUid:(NSUInteger)uid name:(NSString*)name country:(NSString*)country;
 - (instancetype)initWithUid:(NSUInteger)uid name:(NSString*)name country:(NSString*)country;
 

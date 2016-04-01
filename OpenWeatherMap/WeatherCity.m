@@ -8,6 +8,7 @@
 
 #import "WeatherCity.h"
 
+static NSTimeInterval const WaitBeforreNextRequestTimeInterval = 600;
 static NSString * const WeatherCityNotificationDataDidChanged = @"WeatherCityNotificationDataDidChanged";
 
 @interface WeatherCity()
@@ -17,6 +18,8 @@ static NSString * const WeatherCityNotificationDataDidChanged = @"WeatherCityNot
 @property (nonatomic, strong) NSString *country;
 
 @property (nonatomic, strong) CurrentWeatherData *currentWeather;
+
+@property (nonatomic, assign) BOOL isDownloaded;
 
 @end
 
@@ -33,6 +36,7 @@ static NSString * const WeatherCityNotificationDataDidChanged = @"WeatherCityNot
         self.uid = uid;
         self.name = name;
         self.country = country;
+        self.isDownloaded = NO;
     }
     return self;
 }
@@ -64,19 +68,22 @@ static NSString * const WeatherCityNotificationDataDidChanged = @"WeatherCityNot
 // попробовать загрузить с кеша (юзер деф)
 // если нету или время просрочено загрузить с сети (10мин)
 // если загрузка из сети не удалась показыть старые данные
-    
     if (self.currentWeather == nil) {
         self.currentWeather = [self loadFromUserDefaults];
     }
-    
-    NSTimeInterval curent = [NSDate date].timeIntervalSinceReferenceDate;
-    if ((self.currentWeather.lastUpdate - curent) < 100 // 10 minuts
-        || self.currentWeather == nil) {
-        [self reloadCurrentWeatherDataWithApiClient:[WeatherAPIClient sharedClient] withBlock:^(CurrentWeatherData *weather, NSError *error) {
-            self.currentWeather = weather;
-            [[NSNotificationCenter defaultCenter] postNotificationName:WeatherCityNotificationDataDidChanged object:self];
-            //
-        }];
+    NSTimeInterval curent = [NSDate date].timeIntervalSince1970;
+    NSLog(@"%f",curent - self.currentWeather.lastUpdate);
+    if (self.isDownloaded == NO) {
+        if ((curent - self.currentWeather.lastUpdate) > WaitBeforreNextRequestTimeInterval
+            || self.currentWeather == nil) {
+            self.isDownloaded = YES;
+            [self reloadCurrentWeatherDataWithApiClient:[WeatherAPIClient sharedClient] withBlock:^(CurrentWeatherData *weather, NSError *error) {
+                self.currentWeather = weather;
+                [[NSNotificationCenter defaultCenter] postNotificationName:WeatherCityNotificationDataDidChanged object:self];
+                [self saveToUserDefaults];
+                self.isDownloaded = NO;
+            }];
+        }
     }
 }
 
@@ -87,17 +94,11 @@ static NSString * const WeatherCityNotificationDataDidChanged = @"WeatherCityNot
             if (block) {
                 block(weather,nil);
             }
-//            if (weather) {
-//                self.currentWeather = weather;
-//            }
-//            self.currentWeather.lastUpdate = [NSDate date].timeIntervalSinceReferenceDate;
         }
         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        //code
             if (block) {
                 block(nil,error);
             }
-            //
         }];
 }
 
