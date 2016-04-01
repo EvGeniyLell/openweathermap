@@ -77,7 +77,7 @@
             self.windLabel.text = [NSString stringWithFormat:@"speed: %.0f", data.wind.speed];
         }
         
-        self.sunrisesetLabel.text = [NSString stringWithFormat:@"↑ %@\n↓ %@", [self stringFromTimeInterval:data.sun.sunrise], [self stringFromTimeInterval:data.sun.sunset]];
+        self.sunrisesetLabel.text = [NSString stringWithFormat:@"↑ %@\n%@ ↓", [self stringFromTimeInterval:data.sun.sunrise], [self stringFromTimeInterval:data.sun.sunset]];
         self.lastupdateLabel.text = [NSString stringWithFormat:@"update from server: %@",
         [self stringFromTimeIntervalAsDate:data.lastUpdate]];
     } else {
