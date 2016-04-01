@@ -65,6 +65,11 @@ static NSString * const WeatherCityNotificationDataDidChanged = @"WeatherCityNot
 @implementation WeatherCity(APIClient)
 
 - (void)reloadCurrentWeatherData {
+
+    [self reloadCurrentWeatherDataWithCompletion:nil];
+}
+
+- (void)reloadCurrentWeatherDataWithCompletion:(void (^)(CurrentWeatherData *weather, NSError *error))block {
 // попробовать загрузить с кеша (юзер деф)
 // если нету или время просрочено загрузить с сети (10мин)
 // если загрузка из сети не удалась показыть старые данные
@@ -82,8 +87,14 @@ static NSString * const WeatherCityNotificationDataDidChanged = @"WeatherCityNot
                 [[NSNotificationCenter defaultCenter] postNotificationName:WeatherCityNotificationDataDidChanged object:self];
                 [self saveToUserDefaults];
                 self.isDownloaded = NO;
+                if (block) {
+                    block(weather,error);
+                }
             }];
         }
+    }
+    if (block && self.isDownloaded == NO) {
+        block(self.currentWeather,nil);
     }
 }
 

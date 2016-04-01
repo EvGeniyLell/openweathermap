@@ -12,7 +12,8 @@
 
 @interface WeatherView : UIView
 
-//@property (nonatomic, strong) CurrentWeatherData *data;
 @property (nonatomic, strong) WeatherCity *city;
+
+- (void)updateView;
 
 @end

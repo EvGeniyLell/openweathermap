@@ -33,5 +33,6 @@ static NSString * const WeatherCityNotificationDataDidChanged;
 @interface WeatherCity(APIClient)
 
 - (void)reloadCurrentWeatherData;
+- (void)reloadCurrentWeatherDataWithCompletion:(void (^)(CurrentWeatherData *weather, NSError *error))block;
 
 @end

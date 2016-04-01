@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 
-static NSTimeInterval const ScheduledBackgroundUpdateTimeInterval = 1800;
+static NSTimeInterval const ScheduledBackgroundUpdateTimeInterval = 18;
 
 @interface AppDelegate ()
 
@@ -25,8 +25,9 @@ static NSTimeInterval const ScheduledBackgroundUpdateTimeInterval = 1800;
 }
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
-    [ViewController backgroundUpdate];
-    completionHandler(UIBackgroundFetchResultNewData);
+    [ViewController backgroundUpdateWithCompletion:^(CurrentWeatherData *weather, NSError *error) {
+        completionHandler(UIBackgroundFetchResultNewData);
+    }];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

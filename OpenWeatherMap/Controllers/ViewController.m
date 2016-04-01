@@ -49,6 +49,10 @@ static NSTimeInterval const ScheduledUpdateTimeInterval = 1800;
     }];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [self.weatherView updateView];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -119,12 +123,12 @@ static NSTimeInterval const ScheduledUpdateTimeInterval = 1800;
     [self setCity:[self.citiesList objectAtIndex:0]];
 }
 
-+ (void)backgroundUpdate {
++ (void)backgroundUpdateWithCompletion:(void (^)(CurrentWeatherData *weather, NSError *error))block {
     NSUInteger uid = [self loadFromUserDefaults];
     NSArray *citiesList = [self makeCitiesList];
     for (WeatherCity *city in citiesList) {
         if (city.uid == uid) {
-            [city reloadCurrentWeatherData];
+            [city reloadCurrentWeatherDataWithCompletion:block];
             return;
         }
     }

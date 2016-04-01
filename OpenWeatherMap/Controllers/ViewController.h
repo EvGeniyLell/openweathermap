@@ -20,7 +20,7 @@
 
 - (void)saveToUserDefaults;
 - (void)selectCityByUserDefaults;
-+ (void)backgroundUpdate;
++ (void)backgroundUpdateWithCompletion:(void (^)(CurrentWeatherData *weather, NSError *error))block;
 
 @end
 
