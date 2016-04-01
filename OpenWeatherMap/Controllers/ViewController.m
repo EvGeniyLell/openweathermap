@@ -15,6 +15,8 @@ static NSTimeInterval const ScheduledUpdateTimeInterval = 1800;
 
 @interface ViewController() <SettingsViewControllerProtocol>
 
+@property (weak, nonatomic) IBOutlet UIView *noInterner;
+
 @property (nonatomic, strong) NSArray<WeatherCity*>* citiesList;
 @property (nonatomic, strong) NSTimer *scheduledUpdate;
 
@@ -32,8 +34,19 @@ static NSTimeInterval const ScheduledUpdateTimeInterval = 1800;
     self.title = @"Weather";
     
     self.citiesList = [[self class] makeCitiesList];
-    
+
     [self selectCityByUserDefaults];
+
+    self.noInterner.hidden = YES;
+    [WeatherAPIClient monitoringReachabilityStatusChangeWithBlock:^(AFNetworkReachabilityStatus status) {
+        if (status == AFNetworkReachabilityStatusReachableViaWiFi ||
+            status == AFNetworkReachabilityStatusReachableViaWWAN) {
+            self.noInterner.hidden = YES;
+            [self.weatherView.city reloadCurrentWeatherData];
+        } else {
+            self.noInterner.hidden = NO;
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,30 +57,10 @@ static NSTimeInterval const ScheduledUpdateTimeInterval = 1800;
 + (NSArray<WeatherCity*>*)makeCitiesList {
     return @[
              [WeatherCity dataWithUid:703448 name:@"Kiev" country:@"UA"],
-             //{"_id":703448,"name":"Kiev","country":"UA","coord":{"lon":30.516666,"lat":50.433334}}
              [WeatherCity dataWithUid:696317 name:@"Pridneprovsk" country:@"UA"],
-             //{"_id":696317,"name":"Pridneprovsk","country":"UA","coord":{"lon":35.116669,"lat":48.400002}}
              [WeatherCity dataWithUid:706483 name:@"Kharkiv" country:@"UA"],
-             //{"_id":706483,"name":"Kharkiv","country":"UA","coord":{"lon":36.25,"lat":50}}
              [WeatherCity dataWithUid:687700 name:@"Zaporizhzhya" country:@"UA"],
-             //{"_id":687700,"name":"Zaporizhzhya","country":"UA","coord":{"lon":35.183331,"lat":47.816669}}
-//             [WeatherCity dataWithUid:777700 name:@"-" country:@"UA"],
-//             [WeatherCity dataWithUid:687700 name:@"-" country:@"UA"],
-//             [WeatherCity dataWithUid:687700 name:@"-" country:@"UA"],
-//             [WeatherCity dataWithUid:687700 name:@"-" country:@"UA"],
-//             [WeatherCity dataWithUid:687700 name:@"-" country:@"UA"],
-//             [WeatherCity dataWithUid:687700 name:@"-" country:@"UA"],
-//             [WeatherCity dataWithUid:687700 name:@"-" country:@"UA"],
-//             [WeatherCity dataWithUid:687700 name:@"-" country:@"UA"],
-//             [WeatherCity dataWithUid:687700 name:@"-" country:@"UA"],
-//             [WeatherCity dataWithUid:687700 name:@"-" country:@"UA"],
-//             [WeatherCity dataWithUid:687700 name:@"-" country:@"UA"],
-//             [WeatherCity dataWithUid:687700 name:@"-" country:@"UA"],
-//             [WeatherCity dataWithUid:687700 name:@"-" country:@"UA"],
-//             [WeatherCity dataWithUid:687700 name:@"-" country:@"UA"],
-//             [WeatherCity dataWithUid:687700 name:@"-" country:@"UA"],
              ];
-    
 }
 
 #pragma mark - Segues

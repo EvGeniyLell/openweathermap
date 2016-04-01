@@ -16,7 +16,6 @@
 		6B2511F41CAD4D7F00D6A94D /* OpenWeatherMapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2511F31CAD4D7F00D6A94D /* OpenWeatherMapTests.m */; };
 		6B2511FF1CAD4D7F00D6A94D /* OpenWeatherMapUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B2511FE1CAD4D7F00D6A94D /* OpenWeatherMapUITests.m */; };
 		6B65B62C1CAECCB900E6645D /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 6B65B62B1CAECCB900E6645D /* README.md */; };
-		6B65B6501CAECDEB00E6645D /* WeatherAPIClient+CurrentWeatherData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B65B62F1CAECDEB00E6645D /* WeatherAPIClient+CurrentWeatherData.m */; };
 		6B65B6511CAECDEB00E6645D /* WeatherAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B65B6311CAECDEB00E6645D /* WeatherAPIClient.m */; };
 		6B65B6521CAECDEB00E6645D /* NSUserDefaults+KeyedArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B65B6341CAECDEB00E6645D /* NSUserDefaults+KeyedArchiver.m */; };
 		6B65B6531CAECDEB00E6645D /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B65B6371CAECDEB00E6645D /* NavigationViewController.m */; };
@@ -68,8 +67,6 @@
 		6B2511FE1CAD4D7F00D6A94D /* OpenWeatherMapUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenWeatherMapUITests.m; sourceTree = "<group>"; };
 		6B2512001CAD4D7F00D6A94D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B65B62B1CAECCB900E6645D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		6B65B62E1CAECDEB00E6645D /* WeatherAPIClient+CurrentWeatherData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WeatherAPIClient+CurrentWeatherData.h"; sourceTree = "<group>"; };
-		6B65B62F1CAECDEB00E6645D /* WeatherAPIClient+CurrentWeatherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WeatherAPIClient+CurrentWeatherData.m"; sourceTree = "<group>"; };
 		6B65B6301CAECDEB00E6645D /* WeatherAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherAPIClient.h; sourceTree = "<group>"; };
 		6B65B6311CAECDEB00E6645D /* WeatherAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherAPIClient.m; sourceTree = "<group>"; };
 		6B65B6331CAECDEB00E6645D /* NSUserDefaults+KeyedArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+KeyedArchiver.h"; sourceTree = "<group>"; };
@@ -219,8 +216,6 @@
 		6B65B62D1CAECDEB00E6645D /* ApiClient */ = {
 			isa = PBXGroup;
 			children = (
-				6B65B62E1CAECDEB00E6645D /* WeatherAPIClient+CurrentWeatherData.h */,
-				6B65B62F1CAECDEB00E6645D /* WeatherAPIClient+CurrentWeatherData.m */,
 				6B65B6301CAECDEB00E6645D /* WeatherAPIClient.h */,
 				6B65B6311CAECDEB00E6645D /* WeatherAPIClient.m */,
 			);
@@ -455,7 +450,6 @@
 				6B65B65C1CAECDEB00E6645D /* WeatherCity.m in Sources */,
 				6B65B6581CAECDEB00E6645D /* BaseWeatherData.m in Sources */,
 				6B2511DE1CAD4D7D00D6A94D /* AppDelegate.m in Sources */,
-				6B65B6501CAECDEB00E6645D /* WeatherAPIClient+CurrentWeatherData.m in Sources */,
 				6B65B6531CAECDEB00E6645D /* NavigationViewController.m in Sources */,
 				6B65B65A1CAECDEB00E6645D /* MainWeather.m in Sources */,
 				6B65B6541CAECDEB00E6645D /* SettingsViewController.m in Sources */,

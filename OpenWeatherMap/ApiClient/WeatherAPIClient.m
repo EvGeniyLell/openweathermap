@@ -11,6 +11,8 @@
 
 static NSString * const WatherAPIClientKey = @"e7bd95961b5eea99e8d9ef16777d63a2";
 static NSString * const WatherAPIClientBaseURLString = @"http://api.openweathermap.org/data/2.5";
+static NSString * const WatherAPIClientNotificationReachabilityDidChanged = @"WeatherCityNotificationDataDidChanged";
+
 
 #define waiting
 
@@ -43,5 +45,9 @@ static NSString * const WatherAPIClientBaseURLString = @"http://api.openweatherm
     return [super GET:URLString parameters:parametersWithDafaultValue progress:downloadProgress success:success failure:failure];
 }
 
++ (void)monitoringReachabilityStatusChangeWithBlock:(void (^)(AFNetworkReachabilityStatus status))block {
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:block];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+}
 
 @end

@@ -23,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastupdateLabel;
 
-
 @end
 
 

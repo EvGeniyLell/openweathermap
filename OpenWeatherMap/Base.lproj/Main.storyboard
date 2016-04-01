@@ -34,10 +34,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9Ri-VQ-E1C">
-                                                <rect key="frame" x="0.0" y="38" width="264" height="120"/>
+                                                <rect key="frame" x="0.0" y="38" width="264" height="133"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xvH-Qo-Qxg">
-                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                                        <rect key="frame" x="0.0" y="7" width="120" height="120"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainOptionsClear" translatesAutoresizingMaskIntoConstraints="NO" id="I7c-st-SEx">
                                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
@@ -52,7 +52,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Eai-M6-eQt">
-                                                        <rect key="frame" x="120" y="3" width="144" height="114"/>
+                                                        <rect key="frame" x="120" y="10" width="144" height="114"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="7Uf-7o-Nzv">
                                                                 <rect key="frame" x="0.0" y="0.0" width="144" height="74"/>
@@ -111,13 +111,13 @@
                                                 </subviews>
                                             </stackView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Separator" translatesAutoresizingMaskIntoConstraints="NO" id="v2d-c4-uYE">
-                                                <rect key="frame" x="0.0" y="166" width="264" height="1"/>
+                                                <rect key="frame" x="0.0" y="179" width="264" height="1"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="3bN-ke-cuS"/>
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="OMc-GR-Hft">
-                                                <rect key="frame" x="0.0" y="175" width="264" height="30"/>
+                                                <rect key="frame" x="0.0" y="188" width="264" height="30"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QmM-0Z-1he">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="30"/>
@@ -173,7 +173,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="qqX-rk-UfY">
-                                                <rect key="frame" x="0.0" y="213" width="264" height="50"/>
+                                                <rect key="frame" x="0.0" y="226" width="264" height="35"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUf-B3-igS">
                                                         <rect key="frame" x="0.0" y="0.0" width="66" height="27"/>
@@ -205,11 +205,11 @@ direct: W/W</string>
                                                     </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="pj4-qf-Ctn"/>
+                                                    <constraint firstAttribute="height" constant="35" id="pj4-qf-Ctn"/>
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHk-Uj-hcR">
-                                                <rect key="frame" x="0.0" y="271" width="264" height="13"/>
+                                                <rect key="frame" x="0.0" y="269" width="264" height="15"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -223,15 +223,9 @@ direct: W/W</string>
                                     <constraint firstItem="ojI-77-bhe" firstAttribute="leading" secondItem="EpG-5Y-gpt" secondAttribute="leadingMargin" id="2SA-dr-WNE"/>
                                     <constraint firstAttribute="width" constant="280" id="4JM-5N-txL"/>
                                     <constraint firstItem="ojI-77-bhe" firstAttribute="top" secondItem="EpG-5Y-gpt" secondAttribute="topMargin" id="8zq-2E-s7P"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="280" id="KWY-wn-fce"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="ojI-77-bhe" secondAttribute="bottom" id="MQd-tz-HsV"/>
                                     <constraint firstAttribute="height" constant="300" id="mbA-lv-vnS"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="KWY-wn-fce"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <outlet property="cityNameLabel" destination="gBb-vs-NbE" id="Q72-IB-M6N"/>
                                     <outlet property="coverView" destination="I7c-st-SEx" id="i2S-d3-Zln"/>
@@ -246,12 +240,21 @@ direct: W/W</string>
                                     <outlet property="windLabel" destination="XUf-B3-igS" id="uad-bW-bWV"/>
                                 </connections>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoInternet" translatesAutoresizingMaskIntoConstraints="NO" id="5N6-gV-ZKa">
+                                <rect key="frame" x="21" y="462" width="279" height="98"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="279" id="G9g-gu-Xhj"/>
+                                    <constraint firstAttribute="height" constant="98" id="pKb-2G-bPA"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="EpG-5Y-gpt" secondAttribute="trailing" id="12I-NL-wnb"/>
+                            <constraint firstItem="5N6-gV-ZKa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7zG-Ya-Ogy"/>
                             <constraint firstItem="EpG-5Y-gpt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PC4-lu-L7v"/>
                             <constraint firstItem="EpG-5Y-gpt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Sd4-8n-3LC"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5N6-gV-ZKa" secondAttribute="bottom" constant="8" id="jgS-08-drB"/>
                             <constraint firstItem="EpG-5Y-gpt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="mJd-VN-SQ2"/>
                         </constraints>
                         <variation key="default">
@@ -264,6 +267,7 @@ direct: W/W</string>
                     <navigationItem key="navigationItem" id="0h5-k4-dyb"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="noInterner" destination="5N6-gV-ZKa" id="kwC-QN-uNq"/>
                         <outlet property="weatherView" destination="EpG-5Y-gpt" id="xWB-1o-H6w"/>
                     </connections>
                 </viewController>
@@ -380,6 +384,7 @@ direct: W/W</string>
     </scenes>
     <resources>
         <image name="MainOptionsClear" width="60" height="60"/>
+        <image name="NoInternet" width="279" height="98"/>
         <image name="Separator" width="1" height="1"/>
         <image name="humidity" width="30" height="30"/>
         <image name="leftArrow" width="30" height="30"/>

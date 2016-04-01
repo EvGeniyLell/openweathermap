@@ -12,7 +12,6 @@
 @interface WeatherAPIClient : AFHTTPSessionManager
 
 + (instancetype)sharedClient;
++ (void)monitoringReachabilityStatusChangeWithBlock:(void (^)(AFNetworkReachabilityStatus status))block;
 
 @end
-
-#import "WeatherAPIClient+CurrentWeatherData.h"
