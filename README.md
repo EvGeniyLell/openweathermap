@@ -1,19 +1,13 @@
 # openweathermap
-https://home.openweathermap.org
-user EvGeniyLell
-apikey = e7bd95961b5eea99e8d9ef16777d63a2
+#### тестовое задание
+>Приложение с экраном погоды и настроек.
+>Экран погоды ­ главный экран приложения. Дизайн не имеет значения, но можно и проявить инициативу. Необходима информация из ответа сервера + иконка погоды .
+>Переход на экран настроек ­ иконка настроек в верхнем правом углу тулбара.
+>В экране настроек в списке  отображаются 3 города (на выбор).
+>После клика на элемент списка пользователь возвращается на предыдущий экран с детальной информацией.
+>Данные обновляются каждые пол часа.
+>В оффлайн режиме выводить сообщение об ошибке.
+>Приложение поддерживает поворот экрана.
+>Сервис погоды http://openweathermap.org/api/
+>Сторонние библиотеки на свое усмотрение
 
-
-By city ID
-API call:
-api.openweathermap.org/data/2.5/forecast?id={city ID}
-api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=1111111111 
-
-request data type
-- JSON api.openweathermap.org/data/2.5/weather?q=London
-- XML api.openweathermap.org/data/2.5/weather?q=London&mode=xml
-- HTML api.openweathermap.org/data/2.5/weather?q=London&mode=html
-
-
-png были взяты у приложения
-iWeather Complete HD LITE
